@@ -1,3 +1,0 @@
-([('gui',
-   '/Users/sebastianprusak/Desktop/PaprScrapr/src/python/dist/gui',
-   'EXECUTABLE')],)
