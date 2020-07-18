@@ -1,0 +1,8 @@
+
+1. Run:
+sudo python -m PyInstaller --onefile --windowed gui.py
+
+2. Specify Data variable in gui.spec
+
+3. Run Again:
+sudo python -m PyInstaller --onefile --windowed gui.spec
