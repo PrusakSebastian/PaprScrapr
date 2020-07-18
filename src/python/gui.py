@@ -2,21 +2,29 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QPushButton, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QLineEdit, QCheckBox, QProgressBar, QLabel, QMessageBox
 from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QFile
 
 #import threading
 import time
 import webbrowser
 import pandas as pd
 
-Form, Window = uic.loadUiType("/Users/sebastianprusak/Desktop/PaprScrapr/src/python/dialog.ui")
-
 from PaperScraperAPI import PaperScraperAPI
 import Project
+
+#Form, Window = uic.loadUiType("/Users/sebastianprusak/Desktop/PaprScrapr/src/python/dialog.ui")
 
 class Gui:
     def __init__(self):
         self.app = QApplication([])
+
+        # Load the UI
+        filepath = Project.resource_path("data/ui/dialog.ui")
+        fileh = QFile(filepath)
+        fileh.open(QFile.ReadOnly)
+        Form, Window = uic.loadUiType(fileh)
+        fileh.close()
+
         self.window = Window()
         self.form = Form()
         self.form.setupUi(self.window)
